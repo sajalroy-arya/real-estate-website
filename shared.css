@@ -455,76 +455,7 @@ p {
    but prompt says "Keep paragraphs max 2 lines" generically. 
    We will keep it strict. */
 
-/* Premium High-Converting Buttons */
-button, .btn-solid, .btn-ghost, .btn-pill, .btn-cta, a[class*="btn"] {
-  border-radius: 8px !important; /* Slightly sharper, more premium than 12px pill */
-  font-weight: 600 !important;
-  box-shadow: 0 4px 14px rgba(0,0,0,0.08) !important; /* Subtle lift */
-  letter-spacing: 0.05em !important;
-  padding: 16px 28px !important; /* Better hit area on mobile */
-  transition: all 0.2s ease !important;
-}
-
-/* Dark Button Fixes */
-.btn-solid {
-  background: var(--dark) !important;
-  color: #fff !important;
-  border: 1px solid var(--dark) !important;
-}
-
-/* Primary High-Converting CTA (Gold) */
-.btn-cta, .btn-gold, .hero-btns .btn-solid {
-  background: var(--gold) !important;
-  color: #fff !important; /* Fix white-on-white text */
-  border: none !important;
-  box-shadow: 0 6px 20px rgba(184, 134, 11, 0.25) !important;
-}
-
-/* Ghost Buttons */
-.btn-ghost {
-  background: transparent !important;
-  color: var(--dark) !important;
-  border: 1.5px solid var(--dark) !important;
-}
-
-/* Dark Sections Buttons */
-.dark-section .btn-ghost, .hero .btn-ghost, #callback .btn-ghost {
-  color: #fff !important;
-  border-color: rgba(255,255,255,0.4) !important;
-}
-
-/* Remove bulky padding inside cards & heavy shadows */
-/* Also replace any white card background with the page bg */
-.trust-card, .listing-card, .testi-card {
-  padding: 16px !important;
-  box-shadow: none !important;
-  border-radius: 12px !important;
-  border: 1px solid rgba(0,0,0,0.06) !important;
-  background-color: var(--bg) !important;
-}
-
-/* Zero out parent padding for listing cards since body needs the padding */
-.listing-card {
-  padding: 0 !important;
-}
-.listing-card .card-body {
-  padding: 16px !important;
-  background-color: transparent !important;
-}
-
-/* Mobile-first layout tweaks */
-@media (max-width: 768px) {
-
-  
-  /* Large vertical spacing between sections (80–100px mobile) */
-  section, footer, .listings, .trust, .how, .agent-section, .hero, #callback {
-    padding-top: 48px !important;
-    padding-bottom: 48px !important;
-  }
-}
-
-
-/*/* ── PREMIUM ACCESSIBILITY & CONTRAST OVERRIDES ── */
+/* ── PREMIUM ACCESSIBILITY & CONTRAST OVERRIDES ── */
 :root {
   --bg: #FAFAFA !important; /* Cleaner, sharper light mode */
   --gold: #B8860B !important; /* Richer, punchier gold for high conversion */
@@ -552,26 +483,8 @@ p, li, span, a, label, .agent-body {
   color: #4A4A4A !important;
 }
 
-/* Ensure body is dark charcoal */
-body, html {
-  color: #2b2b2b !important;
-}
-
-/* Base text on light backgrounds */
-h1, h2, h3, h4, h5, h6, .section-title.dark, .agent-heading {
-  color: #1A1A1A !important;
-}
-
-p, li, span, a, label, .agent-body {
-  color: #2b2b2b !important;
-}
-
-.card-addr, .hero-sub, .eyebrow, .stat-label, .footer-tagline, .footer-col p {
-  color: #4A4A4A !important;
-}
-
 /* PROTECT DARK BACKGROUND SECTIONS (Hero, Callback, Mobile Menu, Footer) */
-.hero-heading, .hero-heading em, .hero-sub, .hero-eyebrow, section#callback h2, section#callback p, .mobile-nav a, footer p, footer a, footer span, .footer-col-title {
+.hero-heading, .hero-heading em, .hero-sub, .hero-eyebrow, section#callback h2, section#callback p, .mobile-nav a, footer p, footer a, footer span, .footer-col-title, .dark-section h1, .dark-section h2, .dark-section h3, .dark-section p {
   color: #ffffff !important;
 }
 
@@ -593,7 +506,50 @@ p, li, span, a, label, .agent-body {
 
 /* Remove ultra-light text colors anywhere else */
 .stat-item span:first-child {
-  color: #1A1A1A !important; /* Dark stats */
+  color: #0D1617 !important; /* Dark stats */
+}
+
+/* ── PREMIUM HIGH-CONVERTING BUTTONS ── */
+button, .btn-solid, .btn-ghost, .btn-pill, .btn-cta, a[class*="btn"] {
+  border-radius: 8px !important; 
+  font-weight: 600 !important;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.08) !important; 
+  letter-spacing: 0.05em !important;
+  padding: 16px 28px !important; 
+  text-decoration: none !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: all 0.2s ease !important;
+}
+
+/* Solid Buttons (Dark) */
+.btn-solid {
+  background: var(--dark) !important;
+  color: #ffffff !important; 
+  border: 1px solid var(--dark) !important;
+}
+
+/* Primary Hero / CTA Buttons (Gold) */
+.btn-cta, .btn-gold, .hero-btns .btn-solid {
+  background: var(--gold) !important;
+  color: #ffffff !important; 
+  border: none !important;
+  box-shadow: 0 6px 20px rgba(184, 134, 11, 0.25) !important;
+}
+
+/* Ghost Buttons (Outline) */
+.btn-ghost {
+  background: transparent !important;
+  color: var(--dark) !important;
+  border: 1.5px solid var(--dark) !important;
+}
+
+/* Ghost Buttons on Dark Backgrounds */
+.hero-btns .btn-ghost, .dark-section .btn-ghost, #whatsapp-cta .btn-ghost {
+  background: transparent !important;
+  color: #ffffff !important;
+  border: 1.5px solid rgba(255,255,255,0.4) !important;
 }
 
 /* ── MINIMAL STATS SECTION ── */
