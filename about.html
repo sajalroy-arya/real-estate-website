@@ -1,0 +1,1041 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover"/><meta name="theme-color" content="#1C2B2D"/>
+    <title>About | This Website Can Be Yours</title>
+    <meta name="description"
+        content="Your story. Your brand. Your clients. This is where agents build trust with their audience." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=DM+Sans:wght@400;500;600&family=Lora:ital,wght@0,400;0,500;1,400&family=Space+Mono:wght@400;700&display=swap"
+        rel="stylesheet" />
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0
+        }
+
+        :root {
+            --bg: #FAF7F2;
+            --gold: #C8A96E;
+            --dark: #1C2B2D;
+            --mocha: #7D6A55;
+            --terra: #E8533F;
+            --cormorant: 'Cormorant Garamond', serif;
+            --dm: 'DM Sans', sans-serif;
+            --lora: 'Lora', serif;
+            --mono: 'Space Mono', monospace
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--dark);
+            font-family: var(--lora);
+            overflow-x: hidden;
+            cursor: none
+        }
+
+        #cursor-dot {
+            position: fixed;
+            width: 8px;
+            height: 8px;
+            background: var(--gold);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%)
+        }
+
+        #cursor-ring {
+            position: fixed;
+            width: 36px;
+            height: 36px;
+            border: 1.5px solid var(--gold);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9998;
+            transform: translate(-50%, -50%);
+            opacity: .45;
+            transition: width .25s, height .25s
+        }
+
+        body.link-hover #cursor-ring {
+            width: 52px;
+            height: 52px;
+            opacity: .7
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 200;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 22px 64px;
+            background: var(--dark);
+            border-bottom: 1px solid rgba(200, 169, 110, .3)
+        }
+
+        .nav-logo {
+            font-family: var(--cormorant);
+            font-style: italic;
+            font-weight: 700;
+            font-size: 21px;
+            color: #fff;
+            text-decoration: none
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 36px;
+            list-style: none
+        }
+
+        .nav-links li a {
+            font-family: var(--dm);
+            font-weight: 500;
+            font-size: 11px;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: rgba(255, 255, 255, .75);
+            position: relative;
+            padding-bottom: 4px;
+            transition: color .3s
+        }
+
+        .nav-links li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--gold);
+            transition: width .35s
+        }
+
+        .nav-links li a:hover::after,
+        .nav-links li a.active::after {
+            width: 100%
+        }
+
+        .nav-links li a:hover,
+        .nav-links li a.active {
+            color: #fff
+        }
+
+        .btn-pill {
+            font-family: var(--dm);
+            font-weight: 500;
+            font-size: 11px;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            padding: 10px 24px;
+            border-radius: 100px;
+            border: 1.5px solid var(--gold);
+            color: #fff;
+            background: transparent;
+            cursor: none;
+            text-decoration: none;
+            transition: all .25s
+        }
+
+        .btn-pill:hover {
+            background: var(--terra);
+            border-color: var(--terra)
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: none;
+            background: none;
+            border: none;
+            padding: 4px
+        }
+
+        .mobile-menu-btn span {
+            display: block;
+            width: 24px;
+            height: 1.5px;
+            background: #fff
+        }
+
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: var(--dark);
+            z-index: 190;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 32px
+        }
+
+        .mobile-nav.open {
+            display: flex
+        }
+
+        .mobile-nav a {
+            font-family: var(--cormorant);
+            font-style: italic;
+            font-size: 36px;
+            color: #fff;
+            text-decoration: none;
+            transition: color .25s
+        }
+
+        .mobile-nav a:hover {
+            color: var(--gold)
+        }
+
+        .mobile-close {
+            position: absolute;
+            top: 24px;
+            right: 32px;
+            font-size: 24px;
+            color: #fff;
+            cursor: none;
+            background: none;
+            border: none
+        }
+
+        /* HERO */
+        .about-hero {
+            padding: 160px 80px 100px;
+            background: var(--dark);
+            position: relative;
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center
+        }
+
+        .hero-grain {
+            position: absolute;
+            inset: 0;
+            opacity: .04;
+            pointer-events: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E")
+        }
+
+        .about-hero-text {
+            position: relative;
+            z-index: 1
+        }
+
+        .eyebrow {
+            font-family: var(--mono);
+            font-size: 11px;
+            color: var(--gold);
+            letter-spacing: .22em;
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 18px
+        }
+
+        .hero-heading {
+            font-family: var(--cormorant);
+            font-style: italic;
+            font-weight: 700;
+            font-size: clamp(44px, 5vw, 72px);
+            color: #fff;
+            line-height: 1.05;
+            margin-bottom: 24px
+        }
+
+        .hero-sub {
+            font-family: var(--lora);
+            font-size: 17px;
+            color: rgba(255, 255, 255, .6);
+            line-height: 1.8;
+            margin-bottom: 36px
+        }
+
+        .btn-ghost {
+            font-family: var(--dm);
+            font-weight: 500;
+            font-size: 12px;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            padding: 15px 36px;
+            background: transparent;
+            color: #fff;
+            border: 1.5px solid var(--gold);
+            border-radius: 3px;
+            cursor: none;
+            text-decoration: none;
+            transition: all .25s
+        }
+
+        .btn-ghost:hover {
+            background: var(--gold);
+            color: var(--dark)
+        }
+
+        .about-hero-img {
+            position: relative;
+            border-radius: 4px;
+            overflow: hidden;
+            z-index: 1
+        }
+
+        .about-hero-img img {
+            width: 100%;
+            height: 480px;
+            object-fit: cover;
+            object-position: top;
+            filter: sepia(8%) saturation(1.1)
+        }
+
+        .about-hero-img::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");
+            opacity: .06;
+            pointer-events: none
+        }
+
+        .gold-bar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gold)
+        }
+
+        /* STATS ROW */
+        .stats-row {
+            background: var(--gold);
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap
+        }
+
+        .stat-box {
+            padding: 32px 56px;
+            text-align: center;
+            border-right: 1px solid rgba(28, 43, 45, .15)
+        }
+
+        .stat-box:last-child {
+            border-right: none
+        }
+
+        .stat-num {
+            font-family: var(--cormorant);
+            font-weight: 700;
+            font-size: 48px;
+            color: var(--dark);
+            display: block;
+            line-height: 1
+        }
+
+        .stat-label {
+            font-family: var(--mono);
+            font-size: 10px;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            color: rgba(28, 43, 45, .65);
+            display: block;
+            margin-top: 6px
+        }
+
+        /* STORY */
+        .story {
+            padding: 110px 80px;
+            background: var(--bg);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 100px;
+            align-items: center;
+            max-width: 1300px;
+            margin: 0 auto
+        }
+
+        .story-img {
+            border-radius: 4px;
+            overflow: hidden;
+            position: relative
+        }
+
+        .story-img img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            display: block
+        }
+
+        .story-img-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(28, 43, 45, .8);
+            padding: 16px 24px;
+            font-family: var(--mono);
+            font-size: 10px;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--gold)
+        }
+
+        .story-text h2 {
+            font-family: var(--cormorant);
+            font-style: italic;
+            font-weight: 700;
+            font-size: clamp(34px, 3.5vw, 50px);
+            color: var(--dark);
+            line-height: 1.1;
+            margin: 14px 0 24px
+        }
+
+        .story-text p {
+            font-family: var(--lora);
+            font-size: 16px;
+            color: var(--mocha);
+            line-height: 1.85;
+            margin-bottom: 22px
+        }
+
+        .values-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-top: 32px
+        }
+
+        .value-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px
+        }
+
+        .value-num {
+            font-family: var(--mono);
+            font-size: 11px;
+            color: var(--gold);
+            letter-spacing: .1em;
+            padding-top: 2px;
+            flex-shrink: 0
+        }
+
+        .value-text h4 {
+            font-family: var(--dm);
+            font-weight: 500;
+            font-size: 15px;
+            color: var(--dark);
+            margin-bottom: 4px
+        }
+
+        .value-text p {
+            font-family: var(--lora);
+            font-size: 14px;
+            color: var(--mocha);
+            line-height: 1.7;
+            margin: 0
+        }
+
+        /* PHILOSOPHY - DARK BAND */
+        .philosophy {
+            background: var(--dark);
+            padding: 100px 80px;
+            text-align: center;
+            position: relative
+        }
+
+        .philosophy-grain {
+            position: absolute;
+            inset: 0;
+            opacity: .04;
+            pointer-events: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E")
+        }
+
+        .philosophy blockquote {
+            font-family: var(--cormorant);
+            font-style: italic;
+            font-weight: 600;
+            font-size: clamp(32px, 4.5vw, 60px);
+            color: #fff;
+            line-height: 1.2;
+            max-width: 900px;
+            margin: 0 auto 28px;
+            position: relative;
+            z-index: 1
+        }
+
+        .philosophy cite {
+            font-family: var(--mono);
+            font-size: 11px;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+            color: var(--gold);
+            opacity: .8;
+            position: relative;
+            z-index: 1
+        }
+
+        /* TEAM / CREDENTIALS */
+        .credentials {
+            padding: 100px 80px;
+            background: var(--bg)
+        }
+
+        .credentials h2 {
+            font-family: var(--cormorant);
+            font-style: italic;
+            font-weight: 700;
+            font-size: clamp(34px, 3.5vw, 48px);
+            color: var(--dark);
+            text-align: center;
+            margin: 14px 0 60px
+        }
+
+        .cred-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 36px;
+            max-width: 1100px;
+            margin: 0 auto
+        }
+
+        .cred-card {
+            padding: 36px;
+            border: 1px solid rgba(125, 106, 85, .18);
+            border-radius: 4px;
+            background: #fff;
+            text-align: center;
+            transition: border-color .3s, transform .3s
+        }
+
+        .cred-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-4px)
+        }
+
+        .cred-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background: rgba(200, 169, 110, .1);
+            border: 1px solid rgba(200, 169, 110, .3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px
+        }
+
+        .cred-icon svg {
+            stroke: var(--gold);
+            fill: none;
+            stroke-width: 1.5;
+            stroke-linecap: round;
+            stroke-linejoin: round
+        }
+
+        .cred-card h3 {
+            font-family: var(--dm);
+            font-weight: 500;
+            font-size: 16px;
+            color: var(--dark);
+            margin-bottom: 10px
+        }
+
+        .cred-card p {
+            font-family: var(--lora);
+            font-size: 14px;
+            color: var(--mocha);
+            line-height: 1.75
+        }
+
+        /* CTA */
+        .cta-strip {
+            background: var(--dark);
+            padding: 80px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 32px;
+            border-top: 1px solid rgba(200, 169, 110, .2)
+        }
+
+        .cta-strip h3 {
+            font-family: var(--cormorant);
+            font-style: italic;
+            font-size: clamp(28px, 3vw, 44px);
+            color: #fff
+        }
+
+        .cta-strip p {
+            font-family: var(--lora);
+            font-size: 15px;
+            color: rgba(255, 255, 255, .55);
+            margin-top: 8px
+        }
+
+        .btn-gold {
+            font-family: var(--dm);
+            font-weight: 500;
+            font-size: 12px;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            padding: 16px 38px;
+            background: var(--gold);
+            color: var(--dark);
+            border: none;
+            border-radius: 3px;
+            cursor: none;
+            text-decoration: none;
+            transition: all .25s;
+            display: inline-block
+        }
+
+        .btn-gold:hover {
+            background: var(--terra);
+            color: #fff;
+            transform: translateY(-2px)
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--dark);
+            border-top: 1px solid rgba(200, 169, 110, .35)
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.6fr 1fr 1fr;
+            gap: 60px;
+            padding: 52px 80px 36px
+        }
+
+        .footer-brand-logo {
+            font-family: var(--cormorant);
+            font-style: italic;
+            font-weight: 700;
+            font-size: 20px;
+            color: #fff;
+            display: block;
+            margin-bottom: 10px;
+            text-decoration: none
+        }
+
+        .footer-tagline {
+            font-family: var(--lora);
+            font-size: 13px;
+            color: rgba(255, 255, 255, .4);
+            line-height: 1.8
+        }
+
+        .footer-col-title {
+            font-family: var(--dm);
+            font-weight: 500;
+            font-size: 10px;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 18px;
+            display: block
+        }
+
+        .footer-col ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px
+        }
+
+        .footer-col a {
+            font-family: var(--lora);
+            font-size: 13px;
+            color: rgba(255, 255, 255, .45);
+            text-decoration: none;
+            transition: color .2s
+        }
+
+        .footer-col a:hover {
+            color: var(--gold)
+        }
+
+        .footer-col p {
+            font-family: var(--lora);
+            font-size: 13px;
+            color: rgba(255, 255, 255, .45);
+            line-height: 1.9
+        }
+
+        .footer-col .footer-contact-link {
+            color: rgba(255, 255, 255, .45);
+            text-decoration: none;
+            transition: color .2s
+        }
+
+        .footer-col .footer-contact-link:hover {
+            color: var(--gold)
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(200, 169, 110, .1);
+            padding: 20px 80px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px
+        }
+
+        .footer-bottom p,
+        .footer-bottom a {
+            font-family: var(--mono);
+            font-size: 10px;
+            color: rgba(255, 255, 255, .22);
+            letter-spacing: .07em;
+            text-decoration: none;
+            transition: color .2s
+        }
+
+        .footer-bottom a:hover {
+            color: var(--gold)
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity .7s ease, transform .7s ease
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: none
+        }
+
+        .fade-in.delay-1 {
+            transition-delay: .1s
+        }
+
+        .fade-in.delay-2 {
+            transition-delay: .2s
+        }
+
+        .fade-in.delay-3 {
+            transition-delay: .3s
+        }
+
+        @media(max-width:1024px) {
+            nav {
+                padding: 18px 28px
+            }
+
+            .nav-links {
+                display: none
+            }
+
+            .mobile-menu-btn {
+                display: flex
+            }
+
+            .about-hero {
+                grid-template-columns: 1fr;
+                padding: 130px 28px 60px;
+                gap: 48px
+            }
+
+            .about-hero-img img {
+                height: 340px
+            }
+
+            .stats-row .stat-box {
+                padding: 24px 32px
+            }
+
+            .story {
+                grid-template-columns: 1fr;
+                gap: 48px;
+                padding: 72px 28px
+            }
+
+            .story-img img {
+                height: 360px
+            }
+
+            .philosophy,
+            .credentials,
+            .cta-strip {
+                padding: 72px 28px
+            }
+
+            .cred-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 24px
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 36px;
+                padding: 40px 28px 28px
+            }
+
+            .footer-bottom {
+                padding: 16px 28px
+            }
+        }
+
+        @media(max-width:640px) {
+            .cred-grid {
+                grid-template-columns: 1fr
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr
+            }
+        }
+    /* ── MOBILE PERFORMANCE PATCHES ── */
+@media (max-width: 768px) {
+  /* Remove hover-only transform effects */
+  .listing-card:hover, .trust-card:hover, .cred-card:hover, .testi-card:hover,
+  .sim-card:hover { transform: none !important; box-shadow: none !important; }
+  /* Touch-friendly tap targets */
+  a, button { min-height: 44px; }
+  .filter-btn { padding: 10px 20px; font-size: 11px; }
+  /* GPU layer on animated elements */
+  nav { transform: translateZ(0); }
+  .testi-track { transform: translateZ(0); }
+  /* Prevent overscroll bounce hurting performance */
+  .mobile-nav { overscroll-behavior: contain; overflow-y: auto; }
+  /* Remove box-shadow animations on mobile */
+  .listing-card, .trust-card, .cred-card { transition: none !important; }
+  /* Hero image — no transform */
+  .hero-bg img { transform: none !important; will-change: auto; }
+  /* Stat bar numbers smaller on mobile */
+  .stat-bar { flex-wrap: wrap; }
+  .stat-item { min-width: 50%; }
+  /* Tighter hero padding */
+  .hero { padding: 100px 20px 60px; }
+  .hero h1 { font-size: clamp(36px,10vw,56px); }
+  /* No text selection delay on touch */
+  * { -webkit-tap-highlight-color: transparent; }
+  /* Better listing grid on mobile */
+  .grid { gap: 20px; }
+  /* Better footer on mobile */
+  footer .footer-grid { gap: 28px; padding: 36px 20px 24px; }
+  footer .footer-bottom { padding: 14px 20px; }
+  /* About hero stack */
+  .about-hero { gap: 32px; }
+  /* Contact form */
+  .form-card { padding: 24px 20px; }
+  /* Reduce grain texture quality on mobile (cheaper GPU) */
+  .hero-grain, .philosophy-grain { content-visibility: auto; }
+}</style>
+<link rel="stylesheet" href="shared.css"/>
+</head>
+
+<body>
+    <div id="cursor-dot"></div>
+    <div id="cursor-ring"></div>
+
+    <div class="mobile-nav" id="mobileNav">
+        <button class="mobile-close" id="mobileClose">✕</button>
+        <a href="index.html" onclick="document.getElementById('mobileNav').classList.remove('open')">Home</a>
+        <a href="listings.html" onclick="document.getElementById('mobileNav').classList.remove('open')">Properties</a>
+        <a href="about.html" onclick="document.getElementById('mobileNav').classList.remove('open')">About</a>
+        <a href="contact.html" onclick="document.getElementById('mobileNav').classList.remove('open')">Contact</a>
+    </div>
+
+    <nav id="navbar">
+        <a href="index.html" class="nav-logo">This Website Can Be Yours</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="listings.html">Properties</a></li>
+            <li><a href="about.html" class="active">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="index.html#cta" class="btn-pill">Claim This Site →</a></li>
+        </ul>
+        <button class="mobile-menu-btn" id="mobileMenuBtn"><span></span><span></span><span></span></button>
+    </nav>
+
+    <section class="about-hero">
+        <div class="hero-grain"></div>
+        <div class="about-hero-text fade-in">
+            <span class="eyebrow">Your Story · Your Brand</span>
+            <h1 class="hero-heading">The Agent Behind Every Door.</h1>
+            <p class="hero-sub">This page is where your clients come to learn who you are before they ever call. Your
+                history, your values, your neighborhoods — all in one place. This is the most personal page on your
+                site, and the most powerful.</p>
+            <a href="contact.html" class="btn-ghost">Work With Me →</a>
+        </div>
+        <div class="about-hero-img fade-in delay-1">
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=1000&q=85"
+                alt="Agent placeholder" />
+            <div class="gold-bar"></div>
+        </div>
+    </section>
+
+    <div class="stats-row">
+        <div class="stat-box fade-in"><span class="stat-num">142</span><span class="stat-label">Homes Sold</span></div>
+        <div class="stat-box fade-in delay-1"><span class="stat-num">$48M</span><span class="stat-label">In
+                Volume</span></div>
+        <div class="stat-box fade-in delay-2"><span class="stat-num">12</span><span class="stat-label">Years
+                Experience</span></div>
+        <div class="stat-box fade-in delay-3"><span class="stat-num">5★</span><span class="stat-label">Rated</span>
+        </div>
+    </div>
+
+    <section style="padding:0 0">
+        <div class="story">
+            <div class="story-img fade-in fade-from-left">
+                <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=900&q=80"
+                    alt="Agent in neighborhood" />
+                <div class="story-img-caption">Your neighborhood. Your brand.</div>
+            </div>
+            <div class="story-text fade-in fade-from-right">
+                <span class="eyebrow" style="color:var(--gold)">My Story</span>
+                <h2>From First-Time Buyer to Trusted Advisor</h2>
+                <p>This is where your personal real estate story lives. Your journey — from First-time buyer to seasoned
+                    negotiator. What drove you into this business. The neighborhoods you've watched transform. The
+                    clients you've helped through the biggest decisions of their lives.</p>
+                <p>Great agents aren't just salespeople. They're trusted advisors, community experts, and skilled
+                    navigators. This is your space to convey all of that — before a client ever picks up the phone.</p>
+                <div class="values-list">
+                    <div class="value-item">
+                        <span class="value-num">01</span>
+                        <div class="value-text">
+                            <h4>Neighborhood Expertise</h4>
+                            <p>Deep knowledge of local markets, micro-trends, and community character that no algorithm
+                                can replicate.</p>
+                        </div>
+                    </div>
+                    <div class="value-item">
+                        <span class="value-num">02</span>
+                        <div class="value-text">
+                            <h4>Client-First Approach</h4>
+                            <p>Every decision, negotiation, and recommendation is filtered through one question: what's
+                                best for my client?</p>
+                        </div>
+                    </div>
+                    <div class="value-item">
+                        <span class="value-num">03</span>
+                        <div class="value-text">
+                            <h4>Transparent Communication</h4>
+                            <p>No jargon. No runarounds. Clear, honest guidance at every step of the transaction.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="philosophy">
+        <div class="philosophy-grain"></div>
+        <span class="eyebrow" style="position:relative;z-index:1">Philosophy</span>
+        <blockquote>"Real estate isn't about square footage. It's about the life you build inside those walls."
+        </blockquote>
+        <cite>— Your Name Here, Your Brokerage</cite>
+    </section>
+
+    <section class="credentials">
+        <span class="eyebrow" style="color:var(--gold);text-align:center;display:block;margin-bottom:12px">Why Work With
+            Me</span>
+        <h2 class="fade-in">Credentials &amp; Expertise</h2>
+        <div class="cred-grid">
+            <div class="cred-card fade-in delay-1">
+                <div class="cred-icon"><svg width="22" height="22" viewBox="0 0 24 24">
+                        <path d="M22 10v6M2 10l10-8 10 8M6 21V10" />
+                        <path d="M6 21h12V10" />
+                    </svg></div>
+                <h3>Local Market Authority</h3>
+                <p>Over a decade of hyper-focused market expertise across Los Angeles' most sought-after neighborhoods.
+                </p>
+            </div>
+            <div class="cred-card fade-in delay-2">
+                <div class="cred-icon"><svg width="22" height="22" viewBox="0 0 24 24">
+                        <path d="M12 2l2.5 5.5L21 8.7l-4.5 4.4 1.1 6.4L12 16.5l-5.6 3 1.1-6.4L3 8.7l6.5-.8z" />
+                    </svg></div>
+                <h3>Award-Winning Service</h3>
+                <p>Consistently recognized among the top agents in the region for volume, client satisfaction, and
+                    professionalism.</p>
+            </div>
+            <div class="cred-card fade-in delay-3">
+                <div class="cred-icon"><svg width="22" height="22" viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="10" />
+                        <path d="M8 12l3 3 5-5" />
+                    </svg></div>
+                <h3>Proven Track Record</h3>
+                <p>$48M in closed transactions with a 97% list-to-sale ratio. Results that speak louder than
+                    credentials.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="cta-strip fade-in">
+        <div>
+            <h3>Ready to Make a Move?</h3>
+            <p>Let's talk about your goals. No pressure. Just honest advice.</p>
+        </div>
+        <a href="contact.html" class="btn-gold">Start a Conversation →</a>
+    </div>
+
+    <footer>
+        <div class="footer-grid">
+            <div>
+                <a href="index.html" class="footer-brand-logo">This Website Can Be Yours</a>
+                <p class="footer-tagline">A premium real estate web platform built to convert visitors into lifelong
+                    clients.</p>
+            </div>
+            <div class="footer-col">
+                <span class="footer-col-title">Quick Links</span>
+                <ul>
+                    <li><a href="listings.html">Properties</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="index.html#cta">Get Started</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <span class="footer-col-title">Contact</span>
+                <p>Your Name Here<br />Beverly Hills, CA 90210<br /><a class="footer-contact-link"
+                        href="mailto:hello@yourdomain.com">hello@yourdomain.com</a><br /><a class="footer-contact-link"
+                        href="tel:+15550000000">+1 (555) 000-0000</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 This Website Can Be Yours. Designed to convert.</p>
+            <div style="display:flex;gap:20px"><a href="#">Privacy</a><a href="#">Terms</a></div>
+        </div>
+    </footer>
+
+    <script>
+        const dot = document.getElementById('cursor-dot'), ring = document.getElementById('cursor-ring');
+        let mx = 0, my = 0, rx = 0, ry = 0;
+        document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; dot.style.left = mx + 'px'; dot.style.top = my + 'px' });
+        (function l() { rx += (mx - rx) * .1; ry += (my - ry) * .1; ring.style.left = rx + 'px'; ring.style.top = ry + 'px'; requestAnimationFrame(l) })();
+        document.querySelectorAll('a,button').forEach(el => { el.addEventListener('mouseenter', () => document.body.classList.add('link-hover')); el.addEventListener('mouseleave', () => document.body.classList.remove('link-hover')) });
+        document.getElementById('mobileMenuBtn').addEventListener('click', () => document.getElementById('mobileNav').classList.add('open'));
+        document.getElementById('mobileClose').addEventListener('click', () => document.getElementById('mobileNav').classList.remove('open'));
+        const obs = new IntersectionObserver(e => { e.forEach(i => { if (i.isIntersecting) { i.target.classList.add('visible'); obs.unobserve(i.target) } }) }, { threshold: .12 });
+        document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+    </script>
+<script src="animations.js"></script>
+</body>
+
+</html>

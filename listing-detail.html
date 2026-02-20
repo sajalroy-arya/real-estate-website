@@ -1,0 +1,1130 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover"/><meta name="theme-color" content="#1C2B2D"/>
+    <title>1248 Ridgewood Estate Dr | This Website Can Be Yours</title>
+    <meta name="description"
+        content="5 bed · 4 bath luxury estate in Malibu. $3,450,000. View photos, details, and request a showing." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=DM+Sans:wght@400;500;600&family=Lora:ital,wght@0,400;0,500;1,400&family=Space+Mono:wght@400;700&display=swap"
+        rel="stylesheet" />
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0
+        }
+
+        :root {
+            --bg: #FAF7F2;
+            --gold: #C8A96E;
+            --dark: #1C2B2D;
+            --mocha: #7D6A55;
+            --terra: #E8533F;
+            --cormorant: 'Cormorant Garamond', serif;
+            --dm: 'DM Sans', sans-serif;
+            --lora: 'Lora', serif;
+            --mono: 'Space Mono', monospace
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--dark);
+            font-family: var(--lora);
+            overflow-x: hidden;
+            cursor: none
+        }
+
+        #cursor-dot {
+            position: fixed;
+            width: 8px;
+            height: 8px;
+            background: var(--gold);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%)
+        }
+
+        #cursor-ring {
+            position: fixed;
+            width: 36px;
+            height: 36px;
+            border: 1.5px solid var(--gold);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9998;
+            transform: translate(-50%, -50%);
+            opacity: .45;
+            transition: width .25s, height .25s
+        }
+
+        body.link-hover #cursor-ring {
+            width: 52px;
+            height: 52px;
+            opacity: .7
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 200;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 22px 64px;
+            background: var(--dark);
+            border-bottom: 1px solid rgba(200, 169, 110, .3)
+        }
+
+        .nav-logo {
+            font-family: var(--cormorant);
+            font-style: italic;
+            font-weight: 700;
+            font-size: 21px;
+            color: #fff;
+            text-decoration: none
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 36px;
+            list-style: none
+        }
+
+        .nav-links li a {
+            font-family: var(--dm);
+            font-weight: 500;
+            font-size: 11px;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: rgba(255, 255, 255, .75);
+            position: relative;
+            padding-bottom: 4px;
+            transition: color .3s
+        }
+
+        .nav-links li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--gold);
+            transition: width .35s
+        }
+
+        .nav-links li a:hover::after {
+            width: 100%
+        }
+
+        .nav-links li a:hover {
+            color: #fff
+        }
+
+        .btn-pill {
+            font-family: var(--dm);
+            font-weight: 500;
+            font-size: 11px;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            padding: 10px 24px;
+            border-radius: 100px;
+            border: 1.5px solid var(--gold);
+            color: #fff;
+            background: transparent;
+            cursor: none;
+            text-decoration: none;
+            transition: all .25s
+        }
+
+        .btn-pill:hover {
+            background: var(--terra);
+            border-color: var(--terra)
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: none;
+            background: none;
+            border: none;
+            padding: 4px
+        }
+
+        .mobile-menu-btn span {
+            display: block;
+            width: 24px;
+            height: 1.5px;
+            background: #fff
+        }
+
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: var(--dark);
+            z-index: 190;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 32px
+        }
+
+        .mobile-nav.open {
+            display: flex
+        }
+
+        .mobile-nav a {
+            font-family: var(--cormorant);
+            font-style: italic;
+            font-size: 36px;
+            color: #fff;
+            text-decoration: none;
+            transition: color .25s
+        }
+
+        .mobile-nav a:hover {
+            color: var(--gold)
+        }
+
+        .mobile-close {
+            position: absolute;
+            top: 24px;
+            right: 32px;
+            font-size: 24px;
+            color: #fff;
+            cursor: none;
+            background: none;
+            border: none
+        }
+
+        /* PHOTO GALLERY */
+        .gallery {
+            margin-top: 80px;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 6px;
+            height: 560px
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            cursor: none;
+            transition: opacity .3s
+        }
+
+        .gallery img:hover {
+            opacity: .9
+        }
+
+        .gallery-main {
+            grid-row: 1/3;
+            position: relative
+        }
+
+        .gallery-tag {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-family: var(--mono);
+            font-size: 10px;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            background: var(--gold);
+            color: var(--dark);
+            padding: 6px 14px;
+            border-radius: 2px;
+            font-weight: 700
+        }
+
+        .gallery-more {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            font-family: var(--dm);
+            font-size: 12px;
+            letter-spacing: .08em;
+            background: rgba(28, 43, 45, .85);
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 3px;
+            cursor: none;
+            border: 1px solid rgba(200, 169, 110, .4)
+        }
+
+        /* MAIN LAYOUT */
+        .detail-layout {
+            display: grid;
+            grid-template-columns: 1fr 380px;
+            gap: 80px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 64px 80px 100px
+        }
+
+        /* LISTING INFO */
+        .listing-breadcrumb {
+            font-family: var(--mono);
+            font-size: 10px;
+            letter-spacing: .12em;
+            color: var(--mocha);
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            opacity: .7
+        }
+
+        .listing-breadcrumb a {
+            color: var(--mocha);
+            text-decoration: none;
+            transition: color .2s
+        }
+
+        .listing-breadcrumb a:hover {
+            color: var(--gold)
+        }
+
+        .listing-address {
+            font-family: var(--cormorant);
+            font-style: italic;
+            font-weight: 700;
+            font-size: clamp(34px, 4vw, 52px);
+            color: var(--dark);
+            line-height: 1.1;
+            margin-bottom: 10px
+        }
+
+        .listing-city {
+            font-family: var(--dm);
+            font-size: 15px;
+            color: var(--mocha);
+            margin-bottom: 28px
+        }
+
+        .listing-price-row {
+            display: flex;
+            align-items: baseline;
+            gap: 20px;
+            margin-bottom: 32px;
+            flex-wrap: wrap
+        }
+
+        .listing-price {
+            font-family: var(--cormorant);
+            font-weight: 700;
+            font-size: 48px;
+            color: var(--dark);
+            letter-spacing: -.02em
+        }
+
+        .listing-status {
+            font-family: var(--mono);
+            font-size: 10px;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            background: var(--gold);
+            color: var(--dark);
+            padding: 5px 14px;
+            border-radius: 2px;
+            font-weight: 700;
+            align-self: center
+        }
+
+        /* QUICK STATS */
+        .quick-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0;
+            border: 1px solid rgba(125, 106, 85, .2);
+            border-radius: 4px;
+            margin-bottom: 48px;
+            overflow: hidden
+        }
+
+        .stat-box {
+            padding: 20px 24px;
+            text-align: center;
+            border-right: 1px solid rgba(125, 106, 85, .15)
+        }
+
+        .stat-box:last-child {
+            border-right: none
+        }
+
+        .stat-val {
+            font-family: var(--cormorant);
+            font-weight: 700;
+            font-size: 28px;
+            color: var(--dark);
+            display: block
+        }
+
+        .stat-key {
+            font-family: var(--mono);
+            font-size: 9px;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            color: var(--mocha);
+            opacity: .7;
+            display: block;
+            margin-top: 4px
+        }
+
+        /* DESCRIPTION */
+        .section-label {
+            font-family: var(--mono);
+            font-size: 10px;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            color: var(--gold);
+            display: block;
+            margin-bottom: 14px
+        }
+
+        .desc-heading {
+            font-family: var(--cormorant);
+            font-style: italic;
+            font-weight: 700;
+            font-size: 28px;
+            color: var(--dark);
+            margin-bottom: 18px
+        }
+
+        .desc-text {
+            font-family: var(--lora);
+            font-size: 16px;
+            color: var(--mocha);
+            line-height: 1.85;
+            margin-bottom: 40px
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px 32px;
+            margin-bottom: 48px
+        }
+
+        .feature-item {
+            font-family: var(--lora);
+            font-size: 14px;
+            color: var(--mocha);
+            display: flex;
+            align-items: center;
+            gap: 10px
+        }
+
+        .feature-item::before {
+            content: '';
+            display: block;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--gold);
+            flex-shrink: 0
+        }
+
+        .map-placeholder {
+            background: var(--dark);
+            border-radius: 4px;
+            height: 240px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative
+        }
+
+        .map-placeholder::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url('https://images.unsplash.com/photo-1524661135-423995f22d0b?w=800&q=60') center/cover;
+            opacity: .2
+        }
+
+        .map-placeholder p {
+            font-family: var(--dm);
+            font-size: 12px;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, .6);
+            position: relative;
+            z-index: 1
+        }
+
+        /* SIDEBAR */
+        .sidebar {
+            position: sticky;
+            top: 110px;
+            align-self: start
+        }
+
+        .contact-card {
+            background: #fff;
+            border: 1px solid rgba(125, 106, 85, .15);
+            border-radius: 8px;
+            padding: 36px;
+            box-shadow: 0 4px 32px rgba(28, 43, 45, .07);
+            margin-bottom: 24px
+        }
+
+        .agent-mini {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 28px;
+            padding-bottom: 28px;
+            border-bottom: 1px solid rgba(125, 106, 85, .12)
+        }
+
+        .agent-mini img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: top;
+            border: 2px solid var(--gold)
+        }
+
+        .agent-mini-name {
+            font-family: var(--dm);
+            font-weight: 500;
+            font-size: 15px;
+            color: var(--dark);
+            display: block;
+            margin-bottom: 3px
+        }
+
+        .agent-mini-title {
+            font-family: var(--mono);
+            font-size: 10px;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--mocha);
+            opacity: .7
+        }
+
+        .contact-card h4 {
+            font-family: var(--dm);
+            font-weight: 500;
+            font-size: 14px;
+            color: var(--dark);
+            margin-bottom: 16px
+        }
+
+        .form-group {
+            margin-bottom: 14px
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            font-family: var(--lora);
+            font-size: 14px;
+            padding: 12px 16px;
+            border: 1px solid rgba(125, 106, 85, .2);
+            border-radius: 3px;
+            background: var(--bg);
+            color: var(--dark);
+            outline: none;
+            transition: border-color .25s;
+            resize: none
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--gold)
+        }
+
+        .form-group textarea {
+            height: 90px
+        }
+
+        .btn-submit {
+            width: 100%;
+            font-family: var(--dm);
+            font-weight: 500;
+            font-size: 12px;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            padding: 15px;
+            background: var(--dark);
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            cursor: none;
+            transition: background .25s;
+            margin-top: 4px
+        }
+
+        .btn-submit:hover {
+            background: var(--terra)
+        }
+
+        .phone-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            font-family: var(--dm);
+            font-weight: 500;
+            font-size: 12px;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            padding: 13px;
+            border: 1.5px solid var(--gold);
+            border-radius: 3px;
+            color: var(--dark);
+            text-decoration: none;
+            transition: all .25s;
+            margin-top: 12px
+        }
+
+        .phone-btn:hover {
+            background: var(--gold)
+        }
+
+        .share-card {
+            background: #fff;
+            border: 1px solid rgba(125, 106, 85, .15);
+            border-radius: 8px;
+            padding: 24px 36px
+        }
+
+        .share-card p {
+            font-family: var(--dm);
+            font-size: 12px;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            color: var(--mocha);
+            margin-bottom: 14px
+        }
+
+        .share-btns {
+            display: flex;
+            gap: 10px
+        }
+
+        .share-btn {
+            flex: 1;
+            font-family: var(--mono);
+            font-size: 10px;
+            letter-spacing: .1em;
+            padding: 10px;
+            border: 1px solid rgba(125, 106, 85, .2);
+            border-radius: 3px;
+            text-align: center;
+            color: var(--mocha);
+            text-decoration: none;
+            transition: all .2s;
+            cursor: none
+        }
+
+        .share-btn:hover {
+            border-color: var(--gold);
+            color: var(--dark)
+        }
+
+        /* SIMILAR */
+        .similar {
+            padding: 80px;
+            background: var(--bg);
+            border-top: 1px solid rgba(125, 106, 85, .12)
+        }
+
+        .similar h2 {
+            font-family: var(--cormorant);
+            font-style: italic;
+            font-weight: 700;
+            font-size: 40px;
+            color: var(--dark);
+            margin-bottom: 8px
+        }
+
+        .similar .sub {
+            font-family: var(--lora);
+            font-size: 15px;
+            color: var(--mocha);
+            margin-bottom: 48px
+        }
+
+        .sim-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px
+        }
+
+        .sim-card {
+            border-radius: 6px;
+            overflow: hidden;
+            background: #fff;
+            box-shadow: 0 2px 16px rgba(28, 43, 45, .06);
+            transition: transform .3s, box-shadow .3s
+        }
+
+        .sim-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 40px rgba(28, 43, 45, .12)
+        }
+
+        .sim-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block
+        }
+
+        .sim-body {
+            padding: 18px 22px 22px
+        }
+
+        .sim-addr {
+            font-family: var(--dm);
+            font-size: 13px;
+            color: var(--mocha);
+            margin-bottom: 6px
+        }
+
+        .sim-price {
+            font-family: var(--cormorant);
+            font-weight: 700;
+            font-size: 24px;
+            color: var(--dark);
+            margin-bottom: 10px
+        }
+
+        .sim-link {
+            font-family: var(--dm);
+            font-size: 11px;
+            letter-spacing: .08em;
+            color: var(--terra);
+            text-decoration: none
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--dark);
+            border-top: 1px solid rgba(200, 169, 110, .35)
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.6fr 1fr 1fr;
+            gap: 64px;
+            padding: 52px 80px 36px
+        }
+
+        .footer-brand-logo {
+            font-family: var(--cormorant);
+            font-style: italic;
+            font-weight: 700;
+            font-size: 20px;
+            color: #fff;
+            display: block;
+            margin-bottom: 10px;
+            text-decoration: none
+        }
+
+        .footer-tagline {
+            font-family: var(--lora);
+            font-size: 13px;
+            color: rgba(255, 255, 255, .4);
+            line-height: 1.8
+        }
+
+        .footer-col-title {
+            font-family: var(--dm);
+            font-weight: 500;
+            font-size: 10px;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 18px;
+            display: block
+        }
+
+        .footer-col ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px
+        }
+
+        .footer-col a {
+            font-family: var(--lora);
+            font-size: 13px;
+            color: rgba(255, 255, 255, .45);
+            text-decoration: none;
+            transition: color .2s
+        }
+
+        .footer-col a:hover {
+            color: var(--gold)
+        }
+
+        .footer-col p {
+            font-family: var(--lora);
+            font-size: 13px;
+            color: rgba(255, 255, 255, .45);
+            line-height: 1.9
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(200, 169, 110, .1);
+            padding: 20px 80px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px
+        }
+
+        .footer-bottom p,
+        .footer-bottom a {
+            font-family: var(--mono);
+            font-size: 10px;
+            color: rgba(255, 255, 255, .22);
+            letter-spacing: .07em;
+            text-decoration: none;
+            transition: color .2s
+        }
+
+        .footer-bottom a:hover {
+            color: var(--gold)
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity .7s ease, transform .7s ease
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: none
+        }
+
+        @media(max-width:1024px) {
+            nav {
+                padding: 18px 28px
+            }
+
+            .nav-links {
+                display: none
+            }
+
+            .mobile-menu-btn {
+                display: flex
+            }
+
+            .gallery {
+                grid-template-columns: 1fr;
+                grid-template-rows: 300px;
+                height: auto
+            }
+
+            .gallery img:not(.gallery-main img) {
+                display: none
+            }
+
+            .gallery-main {
+                grid-row: 1
+            }
+
+            .detail-layout {
+                grid-template-columns: 1fr;
+                gap: 48px;
+                padding: 40px 28px 64px
+            }
+
+            .sidebar {
+                position: static
+            }
+
+            .quick-stats {
+                grid-template-columns: 1fr 1fr
+            }
+
+            .similar {
+                padding: 52px 28px
+            }
+
+            .sim-grid {
+                grid-template-columns: 1fr 1fr
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 36px;
+                padding: 40px 28px 28px
+            }
+
+            .footer-bottom {
+                padding: 16px 28px
+            }
+        }
+
+        @media(max-width:600px) {
+            .sim-grid {
+                grid-template-columns: 1fr
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr
+            }
+        }
+    /* ── MOBILE PERFORMANCE PATCHES ── */
+@media (max-width: 768px) {
+  /* Remove hover-only transform effects */
+  .listing-card:hover, .trust-card:hover, .cred-card:hover, .testi-card:hover,
+  .sim-card:hover { transform: none !important; box-shadow: none !important; }
+  /* Touch-friendly tap targets */
+  a, button { min-height: 44px; }
+  .filter-btn { padding: 10px 20px; font-size: 11px; }
+  /* GPU layer on animated elements */
+  nav { transform: translateZ(0); }
+  .testi-track { transform: translateZ(0); }
+  /* Prevent overscroll bounce hurting performance */
+  .mobile-nav { overscroll-behavior: contain; overflow-y: auto; }
+  /* Remove box-shadow animations on mobile */
+  .listing-card, .trust-card, .cred-card { transition: none !important; }
+  /* Hero image — no transform */
+  .hero-bg img { transform: none !important; will-change: auto; }
+  /* Stat bar numbers smaller on mobile */
+  .stat-bar { flex-wrap: wrap; }
+  .stat-item { min-width: 50%; }
+  /* Tighter hero padding */
+  .hero { padding: 100px 20px 60px; }
+  .hero h1 { font-size: clamp(36px,10vw,56px); }
+  /* No text selection delay on touch */
+  * { -webkit-tap-highlight-color: transparent; }
+  /* Better listing grid on mobile */
+  .grid { gap: 20px; }
+  /* Better footer on mobile */
+  footer .footer-grid { gap: 28px; padding: 36px 20px 24px; }
+  footer .footer-bottom { padding: 14px 20px; }
+  /* About hero stack */
+  .about-hero { gap: 32px; }
+  /* Contact form */
+  .form-card { padding: 24px 20px; }
+  /* Reduce grain texture quality on mobile (cheaper GPU) */
+  .hero-grain, .philosophy-grain { content-visibility: auto; }
+}</style>
+<link rel="stylesheet" href="shared.css"/>
+</head>
+
+<body>
+    <div id="cursor-dot"></div>
+    <div id="cursor-ring"></div>
+
+    <div class="mobile-nav" id="mobileNav">
+        <button class="mobile-close" id="mobileClose">✕</button>
+        <a href="index.html" onclick="document.getElementById('mobileNav').classList.remove('open')">Home</a>
+        <a href="listings.html" onclick="document.getElementById('mobileNav').classList.remove('open')">Properties</a>
+        <a href="about.html" onclick="document.getElementById('mobileNav').classList.remove('open')">About</a>
+        <a href="contact.html" onclick="document.getElementById('mobileNav').classList.remove('open')">Contact</a>
+    </div>
+
+    <nav id="navbar">
+        <a href="index.html" class="nav-logo">This Website Can Be Yours</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="listings.html">Properties</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="index.html#cta" class="btn-pill">Claim This Site →</a></li>
+        </ul>
+        <button class="mobile-menu-btn" id="mobileMenuBtn"><span></span><span></span><span></span></button>
+    </nav>
+
+    <!-- GALLERY -->
+    <div class="gallery">
+        <div class="gallery-main">
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1400&q=85" alt="Main view" />
+            <span class="gallery-tag">Featured</span>
+            <button class="gallery-more">View All 24 Photos</button>
+        </div>
+        <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=700&q=80" alt="Interior view" />
+        <img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=700&q=80" alt="Kitchen view" />
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="detail-layout">
+        <div>
+            <p class="listing-breadcrumb fade-in"><a href="listings.html">← Properties</a> &nbsp;/&nbsp; Malibu
+                &nbsp;/&nbsp; Ridgewood Estate</p>
+            <h1 class="listing-address fade-in">1248 Ridgewood Estate Drive</h1>
+            <p class="listing-city fade-in">Malibu, California 90265</p>
+            <div class="listing-price-row fade-in">
+                <span class="listing-price">$3,450,000</span>
+                <span class="listing-status">Featured</span>
+            </div>
+            <div class="quick-stats fade-in">
+                <div class="stat-box"><span class="stat-val">5</span><span class="stat-key">Bedrooms</span></div>
+                <div class="stat-box"><span class="stat-val">4</span><span class="stat-key">Bathrooms</span></div>
+                <div class="stat-box"><span class="stat-val">4,200</span><span class="stat-key">Sq Ft</span></div>
+                <div class="stat-box"><span class="stat-val">0.8</span><span class="stat-key">Acre Lot</span></div>
+            </div>
+
+            <span class="section-label fade-in">About This Property</span>
+            <h2 class="desc-heading fade-in">Coastal Luxury Living</h2>
+            <p class="desc-text fade-in">Nestled in the coveted hills of Malibu, this extraordinary estate offers an
+                unparalleled living experience. Sweeping ocean views, curated finishes, and generous entertaining spaces
+                define every room. The open-concept main floor flows seamlessly from chef's kitchen to wraparound
+                terrace — designed for morning coffee and sunset gatherings alike. This is where your best listing
+                description lives.</p>
+
+            <span class="section-label fade-in">Features & Amenities</span>
+            <div class="features-grid fade-in">
+                <div class="feature-item">Chef's kitchen with marble island</div>
+                <div class="feature-item">Private infinity pool & spa</div>
+                <div class="feature-item">Floor-to-ceiling ocean views</div>
+                <div class="feature-item">3-car climate-controlled garage</div>
+                <div class="feature-item">Primary suite with dual closets</div>
+                <div class="feature-item">Smart home automation system</div>
+                <div class="feature-item">Wine cellar & media room</div>
+                <div class="feature-item">Landscaped grounds, 0.8 acres</div>
+            </div>
+
+            <span class="section-label fade-in">Location</span>
+            <div class="map-placeholder fade-in">
+                <p>Interactive map will appear here</p>
+            </div>
+        </div>
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+            <div class="contact-card">
+                <div class="agent-mini">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=200&q=80" alt="Agent" />
+                    <div>
+                        <span class="agent-mini-name">Your Name Here</span>
+                        <span class="agent-mini-title">Listing Agent · DRE# 00000000</span>
+                    </div>
+                </div>
+                <h4>Schedule a Showing</h4>
+                <div class="form-group"><input type="text" placeholder="Your Full Name" /></div>
+                <div class="form-group"><input type="email" placeholder="Email Address" /></div>
+                <div class="form-group"><input type="tel" placeholder="Phone Number" /></div>
+                <div class="form-group"><textarea
+                        placeholder="I'm interested in this property and would like to schedule a tour..."></textarea>
+                </div>
+                <button class="btn-submit">Request Showing</button>
+                <a href="tel:+15550000000" class="phone-btn">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path
+                            d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.04 1.18a2 2 0 012-2.18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 6.91a16 16 0 006.18 6.18l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7a2 2 0 011.72 2.01z" />
+                    </svg>
+                    Call (555) 000-0000
+                </a>
+            </div>
+            <div class="share-card">
+                <p>Share This Property</p>
+                <div class="share-btns">
+                    <a href="#" class="share-btn">Copy Link</a>
+                    <a href="#" class="share-btn">Email</a>
+                    <a href="#" class="share-btn">SMS</a>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <!-- SIMILAR LISTINGS -->
+    <section class="similar">
+        <h2 class="fade-in">Similar Properties</h2>
+        <p class="sub fade-in">You might also like these listings.</p>
+        <div class="sim-grid fade-in">
+            <div class="sim-card">
+                <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=600&q=80" alt="Similar 1" />
+                <div class="sim-body">
+                    <p class="sim-addr">501 Oceanfront Blvd, Santa Monica</p>
+                    <p class="sim-price">$5,200,000</p>
+                    <a href="listing-detail.html" class="sim-link">View Property →</a>
+                </div>
+            </div>
+            <div class="sim-card">
+                <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=600&q=80" alt="Similar 2" />
+                <div class="sim-body">
+                    <p class="sim-addr">18 Canyon Crest Ln, Hollywood Hills</p>
+                    <p class="sim-price">$4,100,000</p>
+                    <a href="listing-detail.html" class="sim-link">View Property →</a>
+                </div>
+            </div>
+            <div class="sim-card">
+                <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=600&q=80" alt="Similar 3" />
+                <div class="sim-body">
+                    <p class="sim-addr">330 Hillcrest Manor Way, Pasadena</p>
+                    <p class="sim-price">$1,980,000</p>
+                    <a href="listing-detail.html" class="sim-link">View Property →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-grid">
+            <div>
+                <a href="index.html" class="footer-brand-logo">This Website Can Be Yours</a>
+                <p class="footer-tagline">A premium real estate web platform built to convert visitors into clients.</p>
+            </div>
+            <div class="footer-col">
+                <span class="footer-col-title">Quick Links</span>
+                <ul>
+                    <li><a href="listings.html">Properties</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <span class="footer-col-title">Contact</span>
+                <p>Your Name Here<br />Beverly Hills, CA 90210<br /><a
+                        href="mailto:hello@yourdomain.com">hello@yourdomain.com</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 This Website Can Be Yours. Designed to convert.</p>
+            <div style="display:flex;gap:20px"><a href="#">Privacy</a><a href="#">Terms</a></div>
+        </div>
+    </footer>
+
+    <script>
+        const dot = document.getElementById('cursor-dot'), ring = document.getElementById('cursor-ring');
+        let mx = 0, my = 0, rx = 0, ry = 0;
+        document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; dot.style.left = mx + 'px'; dot.style.top = my + 'px' });
+        (function l() { rx += (mx - rx) * .1; ry += (my - ry) * .1; ring.style.left = rx + 'px'; ring.style.top = ry + 'px'; requestAnimationFrame(l) })();
+        document.querySelectorAll('a,button,input,textarea').forEach(el => { el.addEventListener('mouseenter', () => document.body.classList.add('link-hover')); el.addEventListener('mouseleave', () => document.body.classList.remove('link-hover')) });
+        document.getElementById('mobileMenuBtn').addEventListener('click', () => document.getElementById('mobileNav').classList.add('open'));
+        document.getElementById('mobileClose').addEventListener('click', () => document.getElementById('mobileNav').classList.remove('open'));
+        const obs = new IntersectionObserver(e => { e.forEach(i => { if (i.isIntersecting) { i.target.classList.add('visible'); obs.unobserve(i.target) } }) }, { threshold: .12 });
+        document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+    </script>
+<script src="animations.js"></script>
+</body>
+
+</html>
