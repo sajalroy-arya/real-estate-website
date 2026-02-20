@@ -455,11 +455,42 @@ p {
    but prompt says "Keep paragraphs max 2 lines" generically. 
    We will keep it strict. */
 
-/* Buttons rounded 12px, medium weight, no heavy shadows */
+/* Premium High-Converting Buttons */
 button, .btn-solid, .btn-ghost, .btn-pill, .btn-cta, a[class*="btn"] {
-  border-radius: 12px !important;
-  font-weight: 500 !important;
-  box-shadow: none !important;
+  border-radius: 8px !important; /* Slightly sharper, more premium than 12px pill */
+  font-weight: 600 !important;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.08) !important; /* Subtle lift */
+  letter-spacing: 0.05em !important;
+  padding: 16px 28px !important; /* Better hit area on mobile */
+  transition: all 0.2s ease !important;
+}
+
+/* Dark Button Fixes */
+.btn-solid {
+  background: var(--dark) !important;
+  color: #fff !important;
+  border: 1px solid var(--dark) !important;
+}
+
+/* Primary High-Converting CTA (Gold) */
+.btn-cta, .btn-gold, .hero-btns .btn-solid {
+  background: var(--gold) !important;
+  color: #fff !important; /* Fix white-on-white text */
+  border: none !important;
+  box-shadow: 0 6px 20px rgba(184, 134, 11, 0.25) !important;
+}
+
+/* Ghost Buttons */
+.btn-ghost {
+  background: transparent !important;
+  color: var(--dark) !important;
+  border: 1.5px solid var(--dark) !important;
+}
+
+/* Dark Sections Buttons */
+.dark-section .btn-ghost, .hero .btn-ghost, #callback .btn-ghost {
+  color: #fff !important;
+  border-color: rgba(255,255,255,0.4) !important;
 }
 
 /* Remove bulky padding inside cards & heavy shadows */
@@ -493,12 +524,32 @@ button, .btn-solid, .btn-ghost, .btn-pill, .btn-cta, a[class*="btn"] {
 }
 
 
-/* ── PREMIUM ACCESSIBILITY & CONTRAST OVERRIDES ── */
+/*/* ── PREMIUM ACCESSIBILITY & CONTRAST OVERRIDES ── */
 :root {
-  --gold: #A67C00 !important; /* Deeper, richer gold */
-  --dark: #1A1A1A !important; /* Near black for headings */
-  --mocha: #4A4A4A !important; /* Darker grey for secondary text */
-  --terra: #D32F2F !important; /* Deeper terra red */
+  --bg: #FAFAFA !important; /* Cleaner, sharper light mode */
+  --gold: #B8860B !important; /* Richer, punchier gold for high conversion */
+  --dark: #0D1617 !important; /* Deep, luxurious dark teal-black */
+  --mocha: #3B3B3B !important; /* High contrast secondary text */
+  --terra: #D94638 !important; /* Urgent but premium red */
+}
+
+/* Ensure body is dark charcoal */
+body, html {
+  color: #1a1a1a !important;
+  background-color: var(--bg) !important;
+}
+
+/* Base text on light backgrounds */
+h1, h2, h3, h4, h5, h6, .section-title.dark, .agent-heading {
+  color: #0D1617 !important;
+}
+
+p, li, span, a, label, .agent-body {
+  color: #2F2F2F !important;
+}
+
+.card-addr, .hero-sub, .eyebrow, .stat-label, .footer-tagline, .footer-col p {
+  color: #4A4A4A !important;
 }
 
 /* Ensure body is dark charcoal */
@@ -602,5 +653,15 @@ p, li, span, a, label, .agent-body {
   }
   .ms-label {
     font-size: 11px;
+  }
+}
+/* Ensure Trust Grid Stacks on Mobile */
+@media (max-width: 768px) {
+  .trust-grid {
+    grid-template-columns: 1fr !important;
+    gap: 48px !important;
+  }
+  .whatsapp-cta-inner {
+    padding: 48px 20px !important;
   }
 }
