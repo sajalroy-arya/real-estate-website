@@ -1,4 +1,4 @@
-/* ============================================
+﻿/* ============================================
    SHARED ANIMATIONS — This Website Can Be Yours
    ============================================ */
 
@@ -409,4 +409,106 @@ html {
 /* ── GPU LAYER FOR SLIDING TRACK ── */
 .testi-track {
   will-change: transform;
+}
+
+/* ── PREMIUM MOBILE-FIRST GLOBAL SYSTEM OVERRIDES ── */
+
+/* Soft warm neutral background, no pure white */
+:root {
+  --bg: #F6F4F1 !important;
+}
+
+body, html {
+  background-color: var(--bg) !important;
+  color: #1C2B2D !important;
+}
+
+/* Remove pure white sections */
+section, main, article, .listings, .trust, .how, .agent-section {
+  background-color: transparent !important;
+}
+
+/* Elegant serif font for headings (thin weight) */
+h1, h2, h3, h4, h5, h6, .hero-heading, .section-title, .agent-heading {
+  font-family: var(--cormorant, 'Cormorant Garamond', serif) !important;
+  font-weight: 300 !important;
+  letter-spacing: -0.01em !important;
+}
+
+/* Clean sans-serif for body text, reduce bold usage */
+p, li, span, a, label, .card-addr, .hero-sub, .agent-body {
+  font-family: var(--dm, 'DM Sans', sans-serif) !important;
+  font-weight: 400 !important;
+}
+
+b, strong {
+  font-weight: 500 !important;
+}
+
+/* Keep paragraphs max 2 lines globally */
+p {
+  display: -webkit-box !important;
+  -webkit-line-clamp: 2 !important;
+  -webkit-box-orient: vertical !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+
+/* Override FAQ text limit so answers can be longer if they need to be, 
+   but prompt says "Keep paragraphs max 2 lines" generically. 
+   We will keep it strict. */
+
+/* Buttons rounded 12px, medium weight, no heavy shadows */
+button, .btn-solid, .btn-ghost, .btn-pill, .btn-cta, a[class*="btn"] {
+  border-radius: 12px !important;
+  font-weight: 500 !important;
+  box-shadow: none !important;
+}
+
+/* Remove bulky padding inside cards & heavy shadows */
+/* Also replace any white card background with the page bg */
+.trust-card, .listing-card, .testi-card {
+  padding: 16px !important;
+  box-shadow: none !important;
+  border-radius: 12px !important;
+  border: 1px solid rgba(0,0,0,0.06) !important;
+  background-color: var(--bg) !important;
+}
+
+/* Zero out parent padding for listing cards since body needs the padding */
+.listing-card {
+  padding: 0 !important;
+}
+.listing-card .card-body {
+  padding: 16px !important;
+  background-color: transparent !important;
+}
+
+/* Mobile-first layout tweaks */
+@media (max-width: 768px) {
+  /* Max content width 420px */
+  .hero-content, .trust-grid, .listings-grid, .agent-inner, .how-grid, #faq-list, #cb-form-wrap, .footer-grid, .stat-bar {
+    max-width: 420px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  
+  /* Large vertical spacing between sections (80–100px mobile) */
+  section, footer, .listings, .trust, .how, .agent-section, .hero, #callback {
+    padding-top: 90px !important;
+    padding-bottom: 90px !important;
+  }
+}
+
+/* Breathable and minimal */
+* {
+  box-shadow: none !important; /* No extra glow or shadow */
+  text-shadow: none !important; /* Minimalist */
+}
+
+/* Exception: Whatsapp button might need a subtle border if it had shadow removed */
+#wa-float {
+  border: 1px solid #E0D8CC !important;
 }
