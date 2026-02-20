@@ -1482,6 +1482,47 @@
     </div>
   </section>
 
+  <!-- CALLBACK STRIP -->
+  <section style="background:#1C2B2D;padding:60px 80px;text-align:center">
+    <h2 style="font-family:'Cormorant Garamond','Cormorant',serif;font-style:italic;font-size:36px;font-weight:600;color:#fff;margin-bottom:14px">Interested in a Property?</h2>
+    <p style="font-family:'DM Sans',sans-serif;font-size:16px;color:#B0A898;margin-bottom:36px">Leave your number. Our advisor calls you back within 2 hours.</p>
+    <div id="cb-form-wrap" style="max-width:640px;margin:0 auto">
+      <div id="cb-row" style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center">
+        <input id="cb-name" type="text" placeholder="Your Name"
+          style="flex:1 1 180px;min-width:160px;padding:14px 16px;font-family:'DM Sans',sans-serif;font-size:14px;color:#1C2B2D;background:#fff;border:1px solid #ddd;border-radius:6px;outline:none" />
+        <input id="cb-phone" type="tel" placeholder="Your Phone Number"
+          style="flex:1 1 180px;min-width:160px;padding:14px 16px;font-family:'DM Sans',sans-serif;font-size:14px;color:#1C2B2D;background:#fff;border:1px solid #ddd;border-radius:6px;outline:none" />
+        <button onclick="cbSubmit()"
+          style="flex:0 0 auto;padding:14px 28px;background:#C8A96E;color:#1C2B2D;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:700;border:none;border-radius:6px;cursor:pointer;transition:background .2s,transform .15s;white-space:nowrap"
+          onmouseover="this.style.background='#b8966a'" onmouseout="this.style.background='#C8A96E'"
+          onmousedown="this.style.transform='scale(.97)'" onmouseup="this.style.transform='scale(1)'">
+          Request a Callback
+        </button>
+      </div>
+      <p id="cb-error" style="display:none;margin-top:10px;font-family:'DM Sans',sans-serif;font-size:13px;color:#E8533F"></p>
+      <p id="cb-success" style="display:none;font-family:'Lora',serif;font-style:italic;font-size:18px;color:#C8A96E;margin-top:4px">Thank you! We'll call you shortly. 🙏</p>
+    </div>
+  </section>
+  <style>
+    @media(max-width:640px){
+      #cb-row{flex-direction:column}
+      #cb-row input,#cb-row button{width:100%;box-sizing:border-box}
+    }
+  </style>
+  <script>
+    function cbSubmit() {
+      var name  = document.getElementById('cb-name').value.trim();
+      var phone = document.getElementById('cb-phone').value.trim();
+      var err   = document.getElementById('cb-error');
+      if (!name) { err.textContent='Please enter your name.'; err.style.display='block'; return; }
+      if (!phone || phone.replace(/\D/g,'').length < 10) {
+        err.textContent='Please enter a valid 10-digit phone number.'; err.style.display='block'; return;
+      }
+      err.style.display = 'none';
+      document.getElementById('cb-row').style.display    = 'none';
+      document.getElementById('cb-success').style.display = 'block';
+    }
+  </script>
   <!-- AGENT -->
   <section class="agent-section" id="agent">
     <div class="agent-inner">
