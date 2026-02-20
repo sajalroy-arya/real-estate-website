@@ -423,10 +423,7 @@ body, html {
   color: #1C2B2D !important;
 }
 
-/* Remove pure white sections */
-section, main, article, .listings, .trust, .how, .agent-section {
-  background-color: transparent !important;
-}
+
 
 /* Elegant serif font for headings (thin weight) */
 h1, h2, h3, h4, h5, h6, .hero-heading, .section-title, .agent-heading {
@@ -486,19 +483,12 @@ button, .btn-solid, .btn-ghost, .btn-pill, .btn-cta, a[class*="btn"] {
 
 /* Mobile-first layout tweaks */
 @media (max-width: 768px) {
-  /* Max content width 420px */
-  .hero-content, .trust-grid, .listings-grid, .agent-inner, .how-grid, #faq-list, #cb-form-wrap, .footer-grid, .stat-bar {
-    max-width: 420px !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-    width: 100% !important;
-    box-sizing: border-box !important;
-  }
+
   
   /* Large vertical spacing between sections (80–100px mobile) */
   section, footer, .listings, .trust, .how, .agent-section, .hero, #callback {
-    padding-top: 90px !important;
-    padding-bottom: 90px !important;
+    padding-top: 48px !important;
+    padding-bottom: 48px !important;
   }
 }
 
@@ -558,7 +548,7 @@ p, li, span, a, label, .agent-body {
 /* ── MINIMAL STATS SECTION ── */
 .minimal-stats {
   background: var(--bg);
-  padding: 120px 20px;
+  padding: 64px 20px;
   display: flex;
   justify-content: center;
 }
@@ -597,7 +587,7 @@ p, li, span, a, label, .agent-body {
 
 @media (max-width: 768px) {
   .minimal-stats {
-    padding: 80px 20px !important;
+    padding: 48px 20px !important;
   }
   .minimal-stats-inner {
     flex-direction: row;
