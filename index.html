@@ -1385,6 +1385,66 @@
         <a href="#listings" class="btn-solid">Explore Properties</a>
         <a href="#contact" class="btn-ghost">Talk to an Advisor</a>
       </div>
+      <!-- HERO LEAD FORM -->
+      <div id="hero-lead-wrap" class="fade-in delay-3" style="margin-top:36px;max-width:680px">
+        <form id="hero-lead-form" onsubmit="heroLeadSubmit(event)" novalidate
+          style="background:rgba(0,0,0,.45);border:1px solid #C8A96E;border-radius:12px;padding:24px 28px;backdrop-filter:blur(8px)">
+          <div id="hero-form-fields" style="display:flex;gap:12px;flex-wrap:wrap">
+            <input id="hlf-name" type="text" placeholder="Your Name"
+              style="flex:1 1 160px;min-width:130px;background:rgba(255,255,255,.08);border:1px solid rgba(200,169,110,.35);border-radius:6px;padding:13px 16px;font-family:'DM Sans',sans-serif;font-size:14px;color:#fff;outline:none;transition:border-color .2s"
+              onfocus="this.style.borderColor='#C8A96E'" onblur="this.style.borderColor='rgba(200,169,110,.35)'" />
+            <input id="hlf-phone" type="number" placeholder="Your Phone Number"
+              style="flex:1 1 160px;min-width:130px;background:rgba(255,255,255,.08);border:1px solid rgba(200,169,110,.35);border-radius:6px;padding:13px 16px;font-family:'DM Sans',sans-serif;font-size:14px;color:#fff;outline:none;transition:border-color .2s"
+              onfocus="this.style.borderColor='#C8A96E'" onblur="this.style.borderColor='rgba(200,169,110,.35)'" />
+            <select id="hlf-intent"
+              style="flex:1 1 180px;min-width:150px;background:rgba(30,30,30,.8);border:1px solid rgba(200,169,110,.35);border-radius:6px;padding:13px 16px;font-family:'DM Sans',sans-serif;font-size:14px;color:rgba(255,255,255,.75);outline:none;cursor:pointer;transition:border-color .2s"
+              onfocus="this.style.borderColor='#C8A96E'" onblur="this.style.borderColor='rgba(200,169,110,.35)'">
+              <option value="" disabled selected>I'm looking to...</option>
+              <option value="buy">Buy a Property</option>
+              <option value="rent">Rent a Property</option>
+              <option value="sell">Sell My Property</option>
+              <option value="invest">Get Investment Advice</option>
+            </select>
+            <button type="submit"
+              style="flex:1 1 180px;min-width:150px;background:#E8533F;color:#fff;border:none;border-radius:6px;padding:13px 20px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;letter-spacing:.06em;cursor:pointer;transition:background .2s,transform .15s;text-transform:uppercase"
+              onmouseover="this.style.background='#d44433'" onmouseout="this.style.background='#E8533F'"
+              onmousedown="this.style.transform='scale(.97)'" onmouseup="this.style.transform='scale(1)'">
+              Get a Free Callback
+            </button>
+          </div>
+          <p id="hlf-error" style="display:none;margin-top:10px;font-family:'DM Sans',sans-serif;font-size:12px;color:#E8533F;letter-spacing:.03em"></p>
+        </form>
+        <div id="hero-lead-success" style="display:none;background:rgba(0,0,0,.45);border:1px solid #C8A96E;border-radius:12px;padding:28px;backdrop-filter:blur(8px);text-align:center">
+          <p style="font-family:'Lora',serif;font-style:italic;font-size:18px;color:#fff;line-height:1.7">
+            Thank you! Our advisor will call you within 2 hours. 🙏
+          </p>
+        </div>
+      </div>
+      <style>
+        @media(max-width:640px){
+          #hero-form-fields{flex-direction:column}
+          #hero-form-fields input,#hero-form-fields select,#hero-form-fields button{flex:unset;width:100%}
+        }
+        /* remove number input arrows */
+        #hlf-phone::-webkit-outer-spin-button,
+        #hlf-phone::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+        #hlf-phone{-moz-appearance:textfield}
+      </style>
+      <script>
+        function heroLeadSubmit(e) {
+          e.preventDefault();
+          var name  = document.getElementById('hlf-name').value.trim();
+          var phone = document.getElementById('hlf-phone').value.trim();
+          var err   = document.getElementById('hlf-error');
+          if (!name) { err.textContent = 'Please enter your name.'; err.style.display='block'; return; }
+          if (!phone || phone.replace(/\D/g,'').length < 10) {
+            err.textContent = 'Please enter a valid 10-digit phone number.'; err.style.display='block'; return;
+          }
+          err.style.display = 'none';
+          document.getElementById('hero-lead-form').style.display    = 'none';
+          document.getElementById('hero-lead-success').style.display = 'block';
+        }
+      </script>
     </div>
     <div class="stat-bar fade-in">
       <div class="stat-item"><span>500+</span><span class="stat-label">Happy Families Housed</span></div>
