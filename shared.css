@@ -665,3 +665,44 @@ p, li, span, a, label, .agent-body {
     padding: 48px 20px !important;
   }
 }
+/* Premium Floating Slim Header */
+nav {
+  position: fixed !important;
+  top: 16px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  width: calc(100% - 32px) !important;
+  max-width: 1200px !important;
+  height: auto !important;
+  padding: 12px 24px !important;
+  background: rgba(255, 255, 255, 0.85) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border: 1px solid rgba(0,0,0,0.04) !important;
+  border-radius: 100px !important; /* Soft pill shape */
+  box-shadow: 0 12px 32px rgba(0,0,0,0.04) !important;
+  z-index: 1000 !important;
+  transition: all 0.3s ease !important;
+}
+
+nav.scrolled {
+  top: 12px !important;
+  padding: 10px 24px !important;
+  background: rgba(255, 255, 255, 0.92) !important;
+  box-shadow: 0 16px 40px rgba(0,0,0,0.08) !important;
+}
+
+/* Adjust mobile layout to not break border radius */
+@media (max-width: 768px) {
+  nav {
+    top: 12px !important;
+    padding: 10px 16px !important;
+    width: calc(100% - 24px) !important;
+    border-radius: 100px !important;
+  }
+  .nav-links {
+    /* If the menu expands, we handle it separately */
+    border-radius: 24px !important;
+    top: 64px !important;
+  }
+}
