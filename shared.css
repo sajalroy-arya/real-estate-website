@@ -502,13 +502,115 @@ button, .btn-solid, .btn-ghost, .btn-pill, .btn-cta, a[class*="btn"] {
   }
 }
 
-/* Breathable and minimal */
-* {
-  box-shadow: none !important; /* No extra glow or shadow */
-  text-shadow: none !important; /* Minimalist */
+
+/* ── PREMIUM ACCESSIBILITY & CONTRAST OVERRIDES ── */
+:root {
+  --gold: #A67C00 !important; /* Deeper, richer gold */
+  --dark: #1A1A1A !important; /* Near black for headings */
+  --mocha: #4A4A4A !important; /* Darker grey for secondary text */
+  --terra: #D32F2F !important; /* Deeper terra red */
 }
 
-/* Exception: Whatsapp button might need a subtle border if it had shadow removed */
-#wa-float {
-  border: 1px solid #E0D8CC !important;
+/* Ensure body is dark charcoal */
+body, html {
+  color: #2b2b2b !important;
+}
+
+/* Base text on light backgrounds */
+h1, h2, h3, h4, h5, h6, .section-title.dark, .agent-heading {
+  color: #1A1A1A !important;
+}
+
+p, li, span, a, label, .agent-body {
+  color: #2b2b2b !important;
+}
+
+.card-addr, .hero-sub, .eyebrow, .stat-label, .footer-tagline, .footer-col p {
+  color: #4A4A4A !important;
+}
+
+/* PROTECT DARK BACKGROUND SECTIONS (Hero, Callback, Mobile Menu, Footer) */
+.hero-heading, .hero-heading em, .hero-sub, .hero-eyebrow, section#callback h2, section#callback p, .mobile-nav a, footer p, footer a, footer span, .footer-col-title {
+  color: #ffffff !important;
+}
+
+/* Protected Gold in dark sections */
+.hero-heading em, .hero-eyebrow, .mobile-nav a:last-child {
+  color: var(--gold) !important;
+}
+
+/* Protected Card Text (Over gradient) */
+.listing-card .card-price {
+  color: #ffffff !important;
+}
+.listing-card .card-addr {
+  color: rgba(255, 255, 255, 0.95) !important;
+}
+.listing-card .card-specs {
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+/* Remove ultra-light text colors anywhere else */
+.stat-item span:first-child {
+  color: #1A1A1A !important; /* Dark stats */
+}
+
+/* ── MINIMAL STATS SECTION ── */
+.minimal-stats {
+  background: var(--bg);
+  padding: 120px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.minimal-stats-inner {
+  display: flex;
+  gap: 80px;
+  max-width: 1000px;
+  width: 100%;
+  justify-content: center;
+}
+
+.minimal-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.ms-num {
+  font-family: var(--cormorant, 'Cormorant Garamond', serif);
+  font-size: 56px;
+  color: #1A1A1A;
+  font-weight: 300;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.ms-label {
+  font-family: var(--dm, 'DM Sans', sans-serif);
+  font-size: 13px;
+  color: #4A4A4A;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
+  .minimal-stats {
+    padding: 80px 20px !important;
+  }
+  .minimal-stats-inner {
+    flex-direction: row;
+    gap: 24px;
+    justify-content: space-evenly;
+  }
+  .minimal-stat {
+    flex: 1;
+  }
+  .ms-num {
+    font-size: 42px; /* Reduced from 56 to 42 for strong but not oversized text */
+  }
+  .ms-label {
+    font-size: 11px;
+  }
 }
